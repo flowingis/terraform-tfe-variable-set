@@ -65,11 +65,14 @@ locals {
 }
 
 resource "tfe_variable_set" "this" {
-  name          = var.name
-  description   = var.description
-  organization  = var.organization
-  global        = var.global
-  workspace_ids = var.workspace_ids
+  name         = var.name
+  description  = var.description
+  organization = var.organization
+
+  #NOTE: these two attributes are mutually exclusive
+  #      See https://registry.terraform.io/providers/hashicorp/tfe/latest/docs/resources/variable_set#argument-reference)
+  global        = length(var.workspace_ids) > 0 ? null : var.global
+  workspace_ids = var.global ? null : var.workspace_ids
 }
 
 resource "tfe_variable" "this" {
