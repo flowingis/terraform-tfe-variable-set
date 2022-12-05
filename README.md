@@ -6,14 +6,14 @@ Terraform module to provision and manage Terraform Cloud variable sets
 
 | Name | Version |
 |------|---------|
-| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 0.14.0 |
-| <a name="requirement_tfe"></a> [tfe](#requirement\_tfe) | ~> 0.31.0 |
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.0.0 |
+| <a name="requirement_tfe"></a> [tfe](#requirement\_tfe) | >= 0.39.0 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_tfe"></a> [tfe](#provider\_tfe) | ~> 0.31.0 |
+| <a name="provider_tfe"></a> [tfe](#provider\_tfe) | >= 0.39.0 |
 
 ## Modules
 
@@ -25,6 +25,7 @@ No modules.
 |------|------|
 | [tfe_variable.this](https://registry.terraform.io/providers/hashicorp/tfe/latest/docs/resources/variable) | resource |
 | [tfe_variable_set.this](https://registry.terraform.io/providers/hashicorp/tfe/latest/docs/resources/variable_set) | resource |
+| [tfe_workspace_variable_set.this](https://registry.terraform.io/providers/hashicorp/tfe/latest/docs/resources/workspace_variable_set) | resource |
 
 ## Inputs
 
@@ -41,7 +42,7 @@ No modules.
 | <a name="input_terraform_sensitive_variables"></a> [terraform\_sensitive\_variables](#input\_terraform\_sensitive\_variables) | (Optional) Map of sensitive variables of 'Terraform' category used in the variable set<br><br>Item syntax:<br>{<br>  variable1\_name = value1<br>  variable2\_name = value2<br>  ...<br>} | `map(any)` | `{}` | no |
 | <a name="input_terraform_variables"></a> [terraform\_variables](#input\_terraform\_variables) | (Optional) Map of variables of 'Terraform' category used in the workspace<br><br>  Item syntax:<br>  {<br>    variable1\_name = value1<br>    variable2\_name = value2<br>    ...<br>  } | `map(any)` | `{}` | no |
 | <a name="input_variables_descriptions"></a> [variables\_descriptions](#input\_variables\_descriptions) | (Optional) Map of descriptions applied to variable set variables<br><br>  Item syntax:<br>  {<br>    variable1\_name = "description"<br>    variable2\_name = "description"<br>    ...<br>  } | `map(string)` | `{}` | no |
-| <a name="input_workspace_ids"></a> [workspace\_ids](#input\_workspace\_ids) | (Optional) IDs of the workspaces that use the variable set. Must not be set if global is set | `list(string)` | `[]` | no |
+| <a name="input_workspace_ids"></a> [workspace\_ids](#input\_workspace\_ids) | (Optional) IDs of the workspaces that use the variable set. Must not be set if global is true | `list(string)` | `[]` | no |
 
 ## Outputs
 

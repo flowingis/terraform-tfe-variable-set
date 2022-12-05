@@ -68,11 +68,7 @@ resource "tfe_variable_set" "this" {
   name         = var.name
   description  = var.description
   organization = var.organization
-
-  #NOTE: these two attributes are mutually exclusive
-  #      See https://registry.terraform.io/providers/hashicorp/tfe/latest/docs/resources/variable_set#argument-reference)
-  global        = length(var.workspace_ids) > 0 ? null : var.global
-  workspace_ids = var.global ? null : var.workspace_ids
+  global       = var.global
 }
 
 resource "tfe_variable" "this" {
@@ -85,4 +81,11 @@ resource "tfe_variable" "this" {
   description     = try(each.value.description, null)
   sensitive       = try(each.value.sensitive, false)
   variable_set_id = tfe_variable_set.this.id
+}
+
+resource "tfe_workspace_variable_set" "this" {
+  count = length(var.workspace_ids)
+
+  variable_set_id = tfe_variable_set.this.id
+  workspace_id    = var.workspace_ids[count.index]
 }
