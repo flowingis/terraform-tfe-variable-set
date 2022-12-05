@@ -21,7 +21,7 @@ variable "global" {
 }
 
 variable "workspace_ids" {
-  description = " (Optional) IDs of the workspaces that use the variable set. Must not be set if global is set"
+  description = " (Optional) IDs of the workspaces that use the variable set. Must not be set if global is true"
   type        = list(string)
   default     = []
 }
