@@ -1,6 +1,12 @@
 # terraform-tfe-variable-set
 Terraform module to provision and manage Terraform Cloud variable sets
 
+## Integrations
+
+You can use the
+
+It is possible to integrate this module with [tfe-workspace module](https://registry.terraform.io/modules/flowingis/workspace/tfe/latest), in order to assign one or more variable sets to the workspace.
+
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 ## Requirements
 
@@ -25,7 +31,6 @@ No modules.
 |------|------|
 | [tfe_variable.this](https://registry.terraform.io/providers/hashicorp/tfe/latest/docs/resources/variable) | resource |
 | [tfe_variable_set.this](https://registry.terraform.io/providers/hashicorp/tfe/latest/docs/resources/variable_set) | resource |
-| [tfe_workspace_variable_set.this](https://registry.terraform.io/providers/hashicorp/tfe/latest/docs/resources/workspace_variable_set) | resource |
 
 ## Inputs
 
@@ -42,7 +47,6 @@ No modules.
 | <a name="input_terraform_sensitive_variables"></a> [terraform\_sensitive\_variables](#input\_terraform\_sensitive\_variables) | (Optional) Map of sensitive variables of 'Terraform' category used in the variable set<br><br>Item syntax:<br>{<br>  variable1\_name = value1<br>  variable2\_name = value2<br>  ...<br>} | `map(any)` | `{}` | no |
 | <a name="input_terraform_variables"></a> [terraform\_variables](#input\_terraform\_variables) | (Optional) Map of variables of 'Terraform' category used in the workspace<br><br>  Item syntax:<br>  {<br>    variable1\_name = value1<br>    variable2\_name = value2<br>    ...<br>  } | `map(any)` | `{}` | no |
 | <a name="input_variables_descriptions"></a> [variables\_descriptions](#input\_variables\_descriptions) | (Optional) Map of descriptions applied to variable set variables<br><br>  Item syntax:<br>  {<br>    variable1\_name = "description"<br>    variable2\_name = "description"<br>    ...<br>  } | `map(string)` | `{}` | no |
-| <a name="input_workspace_ids"></a> [workspace\_ids](#input\_workspace\_ids) | (Optional) IDs of the workspaces that use the variable set. Must not be set if global is true | `list(string)` | `[]` | no |
 
 ## Outputs
 

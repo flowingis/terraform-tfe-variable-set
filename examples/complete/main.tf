@@ -17,16 +17,6 @@ data "tfe_organization" "myorg" {
   name = "myorg"
 }
 
-resource "tfe_workspace" "myws1" {
-  name         = "my-workspace-1"
-  organization = data.tfe_organization.myorg.name
-}
-
-resource "tfe_workspace" "myws2" {
-  name         = "my-workspace-2"
-  organization = data.tfe_organization.myorg.name
-}
-
 module "global_variable_set" {
   source = "../../"
 
@@ -50,11 +40,6 @@ module "complete_specific_variable_set" {
   name         = "complete-specific-variable-set"
   organization = data.tfe_organization.myorg.name
   description  = "A complete Terraform Cloud variable set applied to specific organization workspaces"
-
-  workspace_ids = [
-    tfe_workspace.myws1.id,
-    tfe_workspace.myws2.id
-  ]
 
   terraform_variables = {
     string_variable = "stringvalue"
@@ -101,4 +86,19 @@ module "complete_specific_variable_set" {
     AWS_ACCESS_KEY_ID     = "Access Key ID to access AWS Account"
     AWS_SECRET_ACCESS_KEY = "Secret Access Key to access AWS Account"
   }
+}
+
+module "workspace" {
+  source  = "flowingis/workspace/tfe"
+  version = "0.4.0"
+
+  name         = "my-workspace-1"
+  description  = "A simple Terraform Cloud/Enterprise workspace"
+  organization = data.tfe_organization.myorg.name
+
+  terraform_version = "1.3.6"
+
+  variable_set_ids = [
+    module.complete_specific_variable_set.id
+  ]
 }
