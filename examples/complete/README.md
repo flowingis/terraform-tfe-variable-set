@@ -44,13 +44,12 @@ Choose the appropriate method to automatically specify these values, like descri
 |------|--------|---------|
 | <a name="module_complete_specific_variable_set"></a> [complete\_specific\_variable\_set](#module\_complete\_specific\_variable\_set) | ../../ | n/a |
 | <a name="module_global_variable_set"></a> [global\_variable\_set](#module\_global\_variable\_set) | ../../ | n/a |
+| <a name="module_workspace"></a> [workspace](#module\_workspace) | flowingis/workspace/tfe | 0.4.0 |
 
 ## Resources
 
 | Name | Type |
 |------|------|
-| [tfe_workspace.myws1](https://registry.terraform.io/providers/hashicorp/tfe/latest/docs/resources/workspace) | resource |
-| [tfe_workspace.myws2](https://registry.terraform.io/providers/hashicorp/tfe/latest/docs/resources/workspace) | resource |
 | [tfe_organization.myorg](https://registry.terraform.io/providers/hashicorp/tfe/latest/docs/data-sources/organization) | data source |
 
 ## Inputs

@@ -20,12 +20,6 @@ variable "global" {
   default     = false
 }
 
-variable "workspace_ids" {
-  description = " (Optional) IDs of the workspaces that use the variable set. Must not be set if global is true"
-  type        = list(string)
-  default     = []
-}
-
 variable "terraform_variables" {
   description = <<EOF
 (Optional) Map of variables of 'Terraform' category used in the workspace

@@ -82,10 +82,3 @@ resource "tfe_variable" "this" {
   sensitive       = try(each.value.sensitive, false)
   variable_set_id = tfe_variable_set.this.id
 }
-
-resource "tfe_workspace_variable_set" "this" {
-  count = length(var.workspace_ids)
-
-  variable_set_id = tfe_variable_set.this.id
-  workspace_id    = var.workspace_ids[count.index]
-}
