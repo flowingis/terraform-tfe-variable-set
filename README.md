@@ -53,4 +53,5 @@ No modules.
 | Name | Description |
 |------|-------------|
 | <a name="output_id"></a> [id](#output\_id) | The ID of the variable set |
+| <a name="output_variable_ids"></a> [variable_ids](#output\_variable_ids) | The ID of the variables contained in the variable set |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
